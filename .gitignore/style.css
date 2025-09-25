@@ -1,0 +1,546 @@
+/* Color Palette & Variables */
+:root {
+  --primary-color: #4421b6; /* A deep purple */
+  --secondary-color: #c4b5fd; /* A lighter, complementary purple */
+  --accent-color: #5c71f6; /* A mid-tone purple for buttons/highlights */
+  --dark-text: #1f2937; /* Dark gray for main text */
+  --light-text: #6b7280; /* Lighter gray for secondary text */
+  --bg-light: #f9fafb; /* Off-white background */
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+/* General Body and Typography */
+body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--dark-text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+  height: 60px; /* Reduced logo size for a cleaner header */
+  object-fit: contain;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px; /* Fully rounded pill shape */
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2); /* A nice, subtle focus ring */
+}
+
+.search-overlay {
+  top: 120%; /* Adjusted for better spacing */
+  width: calc(100% + 10px); /* Slightly wider than the input */
+  left: -5px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  z-index: 100;
+}
+
+.d-none {
+  display: none;
+}
+
+.categories-flex {
+  display: flex;
+  gap: 12px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--bg-light);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.category-item:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  font-weight: 500;
+  color: var(--light-text);
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--dark-text);
+}
+.login-modal {
+  /* This is the most important part - it hides the modal by default */
+  display: none; 
+  
+  /* Keep your other styles for positioning, background, etc. */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); 
+  justify-content: center;
+  align-items: center;
+}
+.login-card {
+  display: flex;
+  background-color: var(--card-bg);
+  max-width: 850px;
+  width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Important for keeping rounded corners */
+}
+
+.login-left {
+  flex-basis: 45%; /* Assign about 45% of the width to the left side */
+  padding: 3rem;
+  background-color: var(--bg-light);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-right {
+  flex-basis: 55%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Needed for positioning the close button */
+}
+
+.login-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+/* Social Login Buttons */
+.social-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.social-btn:hover {
+  background-color: var(--bg-light);
+}
+
+.social-btn i {
+  font-size: 1.2rem;
+}
+
+/* Divider Styling */
+.divider {
+  text-align: center;
+  color: var(--light-text);
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+/* Form Input Fields */
+.login-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Adds space between form elements */
+}
+
+.login-right input {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-right input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+/* Links */
+.forgot-pass {
+  text-align: right;
+  font-size: 0.9rem;
+}
+/* Close Button */
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: var(--light-text);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: var(--dark-text);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .login-card {
+    flex-direction: column;
+  }
+
+  .login-left {
+    display: none; /* Hides the image section on small screens for simplicity */
+  }
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: #fff; /* Changed text color to white for readability on the gradient */
+}
+
+.hero h1 {
+  font-size: 4rem; /* Larger, more impactful heading */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero h2 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #e5e7eb;
+}
+
+/* Features Section */
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: -6rem; /* A more pronounced overlap */
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: var(--light-text);
+  line-height: 1.6;
+}
+
+/* Main Content */
+.main {
+  padding: 8rem 5% 5rem;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.opportunity,
+.course {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  min-width: 300px;
+}
+
+.opportunity h2,
+.course h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark-text);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.opportunity p {
+  line-height: 1.8;
+  color: var(--light-text);
+}
+
+/* Course Section Styling */
+.course h2 {
+  text-align: center;
+}
+
+.course-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.course img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  padding: 10px;
+  background-color: var(--bg-light);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.course img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-text);
+  color: #d1d5db;
+  padding: 4rem 5%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-col {
+  flex-basis: 22%;
+  min-width: 200px;
+}
+
+.footer-col h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-col p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+  color: #d1d5db;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+  color: #d1d5db;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #4b5563;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* Update your CSS to a dark theme */
+:root {
+  --primary-color: #5c71f6; /* A vibrant blue for key elements */
+  --secondary-color: #3f51b5; /* A darker shade of blue */
+  --accent-color: #e91e63; /* Neon pink for highlights/buttons */
+  --dark-bg: #1a1a1a; /* Main body background */
+  --card-bg: #2a2a2a; /* Slightly lighter bg for cards */
+  --light-text: #e0e0e0; /* Off-white text */
+  --border-color: #444; /* Darker border */
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+.header {
+  background-color: var(--dark-bg); /* Dark header */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+}
+
+.nav a {
+  color: var(--light-text); /* Use a light color for nav links */
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.search input {
+  background-color: var(--card-bg); /* Match search input to card bg */
+  border-color: transparent;
+  color: var(--light-text);
+}
+
+.search input:focus {
+  box-shadow: 0 0 0 2px var(--primary-color), 0 0 10px var(--primary-color); /* Add a glow effect on focus */
+}
+
+.login-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 8px; /* Use a less rounded, more modern button */
+  box-shadow: 0 0 15px rgba(233, 30, 99, 0.4); /* Add a glow */
+}
+
+.login-modal .login-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.hero {
+  background: radial-gradient(circle at center, #3c0c7a, #1a1a1a); /* A radial gradient like Judge0 */
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.course img {
+    background-color: transparent; /* Remove the light background */
+    border: 1px solid var(--border-color); /* Add a subtle border */
+    border-radius: 8px; /* Make the corners less rounded */
+}
+
+footer {
+  background-color: var(--dark-bg);
+  color: #999;
+  border-top: 1px solid #333; /* A slight line to separate content */
+}
